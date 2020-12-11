@@ -45,7 +45,14 @@ async def Alarm(wait_for):  # проверяет данные с COM порта 
         global DATA
 
         DATA = ser.readline()  # читаем строку с COM порта
-        print(DATA)
+        try:
+            print(type(str(DATA.decode().rstrip())))
+            await bot.send_message(MY_ID, DATA.decode().rstrip(), disable_notification=True)
+
+        except UnicodeDecodeError:
+            continue
+#        print(DATA.decode('utf-8'))
+#        print(DATA)
 #    for i, j in dict_Alarm.items():  # перебираем словарь с сообщениями
 #        if DATA.decode().rstrip() == i:  # если даные с COM порта есть в словаре сообщений
 #            print(j[0])  # для тестов
