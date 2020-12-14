@@ -35,7 +35,7 @@ dict_Alarm = {'Alarm_0': ['\n ТРЕВОГА!!! Датчик №0 (левый)']
               'ERROR_Mode_A': ['\n Не удалось поставить на охрану! Датчик движения в режиме тревоги!']
               }
 
-@dp.message_handler(commands=['start', 'help'])
+@dp.message_handler(commands=['start', 'help', 'Привет'])
 async def send_welcome(message: types.Message):
 #    print(DATA.decode().rstrip())
 #    await message.reply("Hi!\nI'm EchoBot!\nPowered by aiogram.", reply_markup=kb.greed_kb)
